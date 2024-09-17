@@ -59,4 +59,5 @@ To start the application in development mode, run the following command:
 ```bash
    npm run dev
    ```
-This command will launch the API and connect it to the MyS
+This command will launch the API and connect it to the MySQL
+
