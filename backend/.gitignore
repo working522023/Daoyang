@@ -15,8 +15,8 @@ dist/
 *.log
 
 # Environment variables
-.env
-.env*
+# .env
+# .env*
 
 # Certificates and keys
 *.p8
