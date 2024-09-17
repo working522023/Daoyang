@@ -1,0 +1,35 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+yarn.lock
+randomvideos.ts
+
+# Production build output
+dist/
+
+# IDEs and editors
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env*
+
+# Certificates and keys
+*.p8
+*.pem
+
+# Specific files in parent directories (if needed)
+../node_modules
+../yarn.lock
+
+# Ignore build and output directories
+build/
+coverage/
+
+# Ignore upload directories and their contents
+temp/
+logs/
