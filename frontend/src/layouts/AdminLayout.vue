@@ -1,21 +1,47 @@
 <template>
-  <div class="admin-layout">
-    <aside class="sidebar">
-      <nav>
-        <ul>
-          <li><router-link to="/admin/dashboard">Dashboard</router-link></li>
-          <li><router-link to="/admin/users">Users</router-link></li>
-          <li><router-link to="/admin/settings">Settings</router-link></li>
+  <div class="flex h-screen bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-800 text-white shadow-md h-full flex flex-col">
+      <nav class="flex-1">
+        <ul class="space-y-2 p-4">
+          <li>
+            <router-link
+              to="/admin/dashboard"
+              class="block px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+              active-class="bg-gray-700"
+            >
+              Dashboard
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              to="/admin/users"
+              class="block px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+              active-class="bg-gray-700"
+            >
+              Users
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              to="/admin/settings"
+              class="block px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+              active-class="bg-gray-700"
+            >
+              Settings
+            </router-link>
+          </li>
         </ul>
       </nav>
     </aside>
 
-    <div class="main-content">
-      <header>
-        <h1>Admin Dashboard</h1>
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <header class="bg-white shadow-md border-b border-gray-200 p-4">
+        <h1 class="text-2xl font-semibold text-gray-800">Admin Dashboard</h1>
       </header>
 
-      <main>
+      <main class="flex-1 p-4">
         <router-view />
       </main>
     </div>
@@ -23,66 +49,9 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 
 defineComponent({
-  name: "AdminLayout",
+  name: 'AdminLayout',
 });
 </script>
-
-<style scoped>
-.admin-layout {
-  display: flex;
-  height: 100vh;
-}
-
-.sidebar {
-  width: 250px;
-  background-color: #343a40;
-  color: white;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  position: sticky;
-  top: 0;
-  height: 100%;
-}
-
-.sidebar nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar nav ul li {
-  margin: 0.5rem 0;
-}
-
-.sidebar nav ul li a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  padding: 0.5rem;
-}
-
-.sidebar nav ul li a:hover {
-  background-color: #495057;
-  border-radius: 4px;
-}
-
-.main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-header {
-  background-color: #f8f9fa;
-  padding: 1rem;
-  border-bottom: 1px solid #e9ecef;
-}
-
-main {
-  flex: 1;
-  padding: 1rem;
-}
-</style>

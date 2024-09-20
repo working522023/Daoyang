@@ -74,7 +74,7 @@ export class UserController {
             JWTService.setTokenCookie(res, authToken);
 
             // Send success response
-            res.status(200).json({ status: 200, message: 'Login successful' });
+            res.status(200).json({ status: 200, message: 'Login successful', token: authToken });
         } catch (error) {
             logger.error('Login error:', { error, body: req.body });
 
@@ -173,7 +173,7 @@ export class UserController {
             res.status(200).json({
                 status: 200,
                 message: 'Users retrieved successfully',
-                data: maskedData
+                data: users
             });
         } catch (error) {
             logger.error('Error during user creation:', error);

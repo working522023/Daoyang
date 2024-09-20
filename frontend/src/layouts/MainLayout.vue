@@ -4,7 +4,7 @@
     <header class="bg-white shadow-sm sticky top-0 z-50">
       <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
         <!-- Logo or Brand Name -->
-        <div class="text-xl font-semibold text-gray-800">DY</div>
+        <div class="text-xl font-semibold text-gray-800">co.</div>
 
         <!-- Navigation Links -->
         <div class="space-x-6">

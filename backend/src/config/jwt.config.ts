@@ -16,7 +16,6 @@ export const JWT_CONFIG = {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict' as const,
-        path: '/',
         maxAge: 60 * 60 * 1000,
     },
     clearCookieOptions: {

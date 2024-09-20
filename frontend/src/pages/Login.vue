@@ -1,8 +1,10 @@
 <template>
   <div class="flex items-center justify-center min-h-scree">
     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-      <h2 class="text-2xl font-semibold mb-8 text-center text-gray-800">Login</h2>
-      <form @submit.prevent="login" class="space-y-4">
+      <h2 class="text-2xl font-semibold mb-8 text-center text-gray-800">
+        Login
+      </h2>
+      <form @submit.prevent="handleSubmit" class="space-y-4">
         <div>
           <label
             for="email"
@@ -46,7 +48,7 @@
           >Sign up</router-link
         >
       </p>
-      <p v-if="error" class="mt-4 text-red-600 text-center">{{ error }}</p>
+      <p v-if="authStore.error" class="mt-4 text-red-600 text-center">{{ authStore.error }}</p>
     </div>
   </div>
 </template>
@@ -60,21 +62,28 @@ export default defineComponent({
   setup() {
     const email = ref("");
     const password = ref("");
+    const errorMessage = ref("");
     const authStore = useAuthStore();
     const router = useRouter();
 
-    const login = async () => {
+    const handleSubmit = async () => {
       try {
         await authStore.login(email.value, password.value);
-        if (authStore.isAuthenticated) {
-          router.push({ name: 'Dashboard' });
+        if (authStore.token) {
+          router.push("/admin/dashboard");
         }
       } catch (error) {
-        console.error("Login error:", error);
+        errorMessage.value = error as string;
       }
     };
 
-    return { email, password, login, error: authStore.error };
+    return {
+      email,
+      password,
+      errorMessage,
+      authStore,
+      handleSubmit,
+    };
   },
 });
 </script>
