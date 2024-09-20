@@ -247,16 +247,16 @@ export class UserController {
         const createUserDto = new CreateUserDto();
         Object.assign(createUserDto, req.body);
 
-        const errors = await validate(createUserDto);
-        if (errors.length > 0) {
-            res.status(400).json({
-                status: 400,
-                errors: errors.map(error => ({
-                    field: error.property,
-                    message: Object.values(error.constraints || {}),
-                })),
-            });
-        }
+        // const errors = await validate(createUserDto);
+        // if (errors.length > 0) {
+        //     res.status(400).json({
+        //         status: 400,
+        //         errors: errors.map(error => ({
+        //             field: error.property,
+        //             message: Object.values(error.constraints || {}),
+        //         })),
+        //     });
+        // }
 
         try {
             const { email } = createUserDto;

@@ -1,5 +1,5 @@
-import { isString, ValidationArguments, ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator';
-import { body, param, query } from 'express-validator';
+import { ValidationArguments, ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator';
+import { body, param } from 'express-validator';
 
 export const signupUserValidationRules = [
     body('name').isString().notEmpty().withMessage('Name is required'),

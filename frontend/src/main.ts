@@ -6,7 +6,7 @@ import { router } from './router';
 import './style.css';
 
 // Configure Axios
-axios.defaults.baseURL = 'http://localhost:5000/api/v1/';
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 axios.defaults.withCredentials = true;
 
 const app = createApp(App);
